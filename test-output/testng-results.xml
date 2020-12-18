@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-12-18T09:43:44 ICT" name="Default suite" finished-at="2020-12-18T09:44:43 ICT" duration-ms="59097">
+    <groups>
+    </groups>
+    <test started-at="2020-12-18T09:43:44 ICT" name="Default test" finished-at="2020-12-18T09:44:43 ICT" duration-ms="59097">
+      <class name="Integration.Dashboard">
+        <test-method is-config="true" signature="init()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:43:44 ICT" name="init" finished-at="2020-12-18T09:44:03 ICT" duration-ms="18856" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method is-config="true" signature="login()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:03 ICT" name="login" finished-at="2020-12-18T09:44:18 ICT" duration-ms="14648" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="A_dashboard_profile()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:18 ICT" name="A_dashboard_profile" finished-at="2020-12-18T09:44:20 ICT" duration-ms="2164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_dashboard_profile -->
+        <test-method signature="A_profile_dashboard()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:20 ICT" name="A_profile_dashboard" finished-at="2020-12-18T09:44:23 ICT" duration-ms="3420" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- A_profile_dashboard -->
+        <test-method signature="B_dashboard_grades()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:23 ICT" name="B_dashboard_grades" finished-at="2020-12-18T09:44:26 ICT" duration-ms="2689" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- B_dashboard_grades -->
+        <test-method signature="B_grades_dashboard()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:26 ICT" name="B_grades_dashboard" finished-at="2020-12-18T09:44:29 ICT" duration-ms="2690" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- B_grades_dashboard -->
+        <test-method signature="C_dashboard_messages()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:29 ICT" name="C_dashboard_messages" finished-at="2020-12-18T09:44:31 ICT" duration-ms="2680" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C_dashboard_messages -->
+        <test-method signature="C_messages_dashboard()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:31 ICT" name="C_messages_dashboard" finished-at="2020-12-18T09:44:35 ICT" duration-ms="3339" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- C_messages_dashboard -->
+        <test-method signature="D_dashboard_preferences()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:35 ICT" name="D_dashboard_preferences" finished-at="2020-12-18T09:44:37 ICT" duration-ms="2157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- D_dashboard_preferences -->
+        <test-method signature="D_messages_dashboard()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:37 ICT" name="D_messages_dashboard" finished-at="2020-12-18T09:44:41 ICT" duration-ms="3883" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- D_messages_dashboard -->
+        <test-method is-config="true" signature="close()[pri:0, instance:Integration.Dashboard@3069a360]" started-at="2020-12-18T09:44:41 ICT" name="close" finished-at="2020-12-18T09:44:43 ICT" duration-ms="2482" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- Integration.Dashboard -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
