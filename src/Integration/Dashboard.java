@@ -42,7 +42,7 @@ public class Dashboard extends Init {
 	public void A_dashboard_profile() throws InterruptedException {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@class='d-inline-block  dropdown-toggle icon-no-margin']")).click();
-  		WebDriverWait wait = new WaebDriverWait(driver, 10);
+  		WebDriverWait wait = new WebDriverWait(driver, 10);
   		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class='dropdown-menu dropdown-menu-right menu align-tr-br show']")));
   		WebElement profile = driver.findElement(By.xpath("//*[@class='dropdown show']//span[contains(text(),'Profile')]"));
   		Actions builder = new Actions(driver);
