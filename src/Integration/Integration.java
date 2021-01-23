@@ -11,33 +11,97 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-
+import Page.Home_page;
+import Page.Login_page;
+import package1.ExcelUtils;
 import package1.Init;
 
-public class Dashboard extends Init {
+public class Integration extends Init {
+	public String path = "C:\\Users\\admin\\Desktop\\AutoTest\\Book1.xlsx";
+	public String sheetname = "Dropbox";
+	
+	Login_page objLogin; 
+	Home_page objHome;
+	
+	//col
+	public int testtype = 0;
+	public int case_col = 1;
+	public int expectedurl = 2;
+	public int result = 3;
 	
 	@BeforeClass
-	public void login() throws InterruptedException {
-  		WebElement loginpage = driver.findElement(By.xpath("//*[@class='login']//a"));
-  		loginpage.click();
-  		Thread.sleep(1000);
-  		WebElement loginimg = driver.findElement(By.xpath("//*[@class='modal-body']//p//a"));
-  		loginimg.click();
+	public void login() throws Exception {
+		objLogin = new Login_page(this.driver);
+		objHome = new Home_page(this.driver);
+
   		WebDriverWait wait = new WebDriverWait(driver, 10);
-  		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='placeholderContainer']//input[1]"))).sendKeys("hieu.187pm13916@vanlanguni.vn");
-  		WebElement next = driver.findElement(By.xpath("//*[@value='Next']"));
-  		next.click();
-  		WebElement password = driver.findElement(By.name("passwd"));
-  		password.sendKeys("VLU187pm13916");
+  		
+  		objLogin.LoginText_Click();
+  		objLogin.LoginImg_Click();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		objLogin.setUserName("hieu.187pm13916@vanlanguni.vn");
+  		objLogin.Next_Click();
+  		objLogin.setPassword("VLU187pm13916");
   		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-  		WebElement submitbtn = driver.findElement(By.xpath("//*[@value='Sign in']"));
-  		submitbtn.click();
-  		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-  		WebElement yesbtn = driver.findElement(By.xpath("//*[@value='Yes']"));
-  		yesbtn.click();
-  		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+  		objLogin.SignIn_Click();
+  		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@value='No']")));
+  		objLogin.No_Click();
 	}
 	
+	@Test 
+	public void IntegrationTest() throws Exception {
+		ExcelUtils.setExcelFile(path, sheetname);
+		int rows = ExcelUtils.getRowUsed();
+		System.out.println("RowUsed=" + ExcelUtils.getRowUsed());
+		System.out.println("===========================");
+		
+		for (int i = 2; i <= rows; i++) {
+			System.out.println("Start the loop with i=" + i);
+			System.out.println("CellData:" + ExcelUtils.getCellData(i, case_col));
+	  		//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+			objHome.UserMenu_Click();
+			
+			if (i % 2 == 1) {
+				System.out.println("Action: Dashboard.click();");
+				objHome.Dashboard_Click();
+			}
+			else 
+				switch (i) {
+					case 2:
+						System.out.println("Action: Profile_click();");
+						objHome.Profile_Click();
+						break;
+					case 4:
+						System.out.println("Action: Grades_click();");
+						objHome.Grades_Click();
+						break;
+					case 6:
+						System.out.println("Action: Messages_click();");
+						objHome.Messages_Click();
+						break;
+					case 8:
+						System.out.println("Action: Preferences_click();");
+						objHome.Preferences_Click();
+						break;
+					case 10:
+						System.out.println("Action: LogOut_click();");
+						objHome.LogOut_Click();
+						break;
+					}
+			String expectedURL = ExcelUtils.getCellData(i, expectedurl);
+			String actualURL = driver.getCurrentUrl();	
+			Assert.assertEquals(actualURL, expectedURL);
+			if(actualURL.equals(expectedURL)) {
+				ExcelUtils.setCellData(i, result, "PASSED");
+				ExcelUtils.saveFile(path);
+				System.out.println("PASSED");
+				System.out.println("===========================");
+			} 
+		}
+	}
+	
+/*
 	@Test
 	public void A_dashboard_profile() throws InterruptedException {
 		Thread.sleep(1000);
@@ -50,10 +114,10 @@ public class Dashboard extends Init {
 		movetoProfile.perform();
   		Thread.sleep(300);
   		profile.click();
-  		String expectedURL = "https://elearning.vanlanguni.edu.vn/user/profile.php?id=7159";
+  		String expectedURL = "a";
   		String actualURL = driver.getCurrentUrl();
   		Assert.assertEquals(actualURL,expectedURL);
-	}
+	}	
 	
 	@Test
 	public void A_profile_dashboard() throws InterruptedException {
@@ -162,5 +226,6 @@ public class Dashboard extends Init {
 		Thread.sleep(2000);
 		driver.close();
 	}
+	*/
 }
 

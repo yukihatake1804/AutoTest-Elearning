@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Integration.Dashboard">
+      <class name="package1.UploadDownload">
         <methods>
+          <include name="uploadfile"/>
           <include name="login"/>
-          <include name="close"/>
-          <include name="B_grades_dashboard"/>
-          <include name="B_dashboard_grades"/>
           <include name="init"/>
         </methods>
-      </class> <!-- Integration.Dashboard -->
+      </class> <!-- package1.UploadDownload -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

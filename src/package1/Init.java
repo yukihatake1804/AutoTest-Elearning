@@ -2,6 +2,7 @@ package package1;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 	public abstract class Init {
@@ -12,7 +13,6 @@ import org.testng.annotations.*;
 		public void init() {
 			System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
-			driver.manage().window().maximize();
 			driver.get(baseUrl);
 		}
 }
